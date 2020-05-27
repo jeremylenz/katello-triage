@@ -1,24 +1,20 @@
-import React, { useState } from 'react';
-import { Alert, AlertActionCloseButton } from '@patternfly/react-core';
+import React from 'react';
+import RotationList from './RotationList';
+import TriageHistory from './TriageHistory';
 import './app.css';
 
 const App = () => {
-  const [isShowing, setShowing] = useState(true);
-  const dismissNotification = () => setShowing(false);
+  const redHatters = [
+    {name: 'Jeremy'},
+    {name: 'Toledo'},
+    {name: 'Jonathon'},
+  ]
 
   return (
     <div className="app-container">
-      {isShowing && (
-        <div className="notification-container">
-          <Alert
-            variant="success"
-            title="Setup Complete"
-            action={<AlertActionCloseButton onClose={dismissNotification} />}
-          >
-            You have successfully launched your patternfly starter project.
-          </Alert>
-        </div>
-      )}
+      <TriageHistory redHatters={redHatters} />
+      <br />
+      <RotationList redHatters={redHatters} />
     </div>
   );
 }

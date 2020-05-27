@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardBody, Title } from '@patternfly/react-core';
 
-const TriageHistory = ({ redHatters }) => {
+const TriageHistory = ({ redHatters, setTriagerByName }) => {
   // const baseBoxShadowStyle = "0 0.6875rem 1.5rem 1rem "
   return (
     <div>
@@ -9,9 +9,9 @@ const TriageHistory = ({ redHatters }) => {
         History
       </Title>
       <ul>
-        {redHatters.map((person) =>
-            <li key={person.name + "-history"}>
-              <Card isHoverable>
+        {redHatters.map((person, idx) =>
+            <li key={person.name + "-history-" + idx}>
+              <Card isHoverable onClick={() => setTriagerByName(person.name)}>
                 <CardBody>{person.name}</CardBody>
                 <hr />
               </Card>

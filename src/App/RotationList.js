@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, CardBody, Title } from '@patternfly/react-core';
 
 const RotationList = ({ redHatters, isTestProp = false, ...props }) => {
-  console.log({redHatters, isTestProp, props})
   return (
     <div>
       <Title headingLevel="h1" size="xl">
